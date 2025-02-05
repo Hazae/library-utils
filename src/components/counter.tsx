@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useCounter } from "@/hooks/useCounter";
 
 interface CounterButtonsProps {
   place: string;
@@ -9,53 +9,11 @@ interface CounterButtonsProps {
 }
 
 const CounterButtons = ({ place, onReset, onSave }: CounterButtonsProps) => {
-  const [count, setCount] = useState(0);
-
-  // 초기화 신호를 받으면 카운트를 0으로 설정
-  useEffect(() => {
-    if (onReset) {
-      setCount(0);
-    }
-  }, [onReset, place]);
-
-  // 저장 신호를 받으면 localStorage에 저장
-  useEffect(() => {
-    if (onSave) {
-      const saveData = {
-        count: count,
-        timestamp: new Date().toISOString(),
-      };
-      localStorage.setItem(`visitor_count_${place}`, JSON.stringify(saveData));
-    }
-  }, [onSave, count, place]);
-
-  // 컴포넌트 마운트 시 저장된 값 불러오기
-  useEffect(() => {
-    const savedData = localStorage.getItem(`visitor_count_${place}`);
-    if (savedData) {
-      try {
-        const parsedData = JSON.parse(savedData);
-        // 새로운 형식(객체)인 경우
-        if (parsedData.count !== undefined) {
-          setCount(parsedData.count);
-        }
-        // 이전 형식(숫자)인 경우
-        else {
-          setCount(parseInt(savedData));
-        }
-      } catch (e) {
-        console.error("Error parsing saved data:", e);
-      }
-    }
-  }, [place]);
-
-  const decreaseCount = () => {
-    setCount((prev) => Math.max(0, prev - 1));
-  };
-
-  const increaseCount = () => {
-    setCount((prev) => prev + 1);
-  };
+  const { count, decreaseCount, increaseCount } = useCounter({
+    place,
+    onReset,
+    onSave,
+  });
 
   return (
     <>
