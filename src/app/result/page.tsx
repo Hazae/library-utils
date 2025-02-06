@@ -57,7 +57,7 @@ export default function Result() {
         <div className="max-w-2xl mx-auto">
           {hasData ? (
             Object.entries(savedData).map(([place, data]) => (
-              <div key={place} className="mb-5 p-3 border rounded-lg shadow-sm">
+              <div key={place} className="mb-3 p-3 border rounded-lg shadow-sm">
                 <h2 className="text-xl font-bold mb-4">{place}</h2>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
