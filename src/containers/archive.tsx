@@ -11,7 +11,7 @@ interface ArchiveProps {
 
 function Archive({ place, onReset, onSave }: ArchiveProps) {
   return (
-    <div className="border rounded-lg p-6">
+    <div className="rounded-lg p-6">
       <h2 className="text-xl font-bold my-7 text-center">{place}</h2>
       <Counter place={place} onReset={onReset} onSave={onSave} />
     </div>
