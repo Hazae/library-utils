@@ -19,7 +19,7 @@ const notoSans = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   title: "사람수세기",
-  description: "시간대별 사람 수 총정리",
+  description: "통계 결과 저장",
 };
 
 export default function ResultLayout({

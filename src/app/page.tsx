@@ -30,10 +30,10 @@ export default function Home() {
     // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"></div>
     <Container currentPage="home">
       <div className="m-2 font-[family-name:var(--font-noto-sans)]">
-        <h1 className="text-5xl font-bold mt-3 mb-10 text-center">
+        <h1 className="text-5xl font-bold mt-10 mb-16 text-center">
           야간 통계일지
         </h1>
-        <div className="grid grid-cols-1 gap-5 mb-8">
+        <div className="grid grid-cols-1 gap-12 mb-8">
           {placeNames.map((item) => (
             <Archive
               key={item}
