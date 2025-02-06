@@ -1,15 +1,19 @@
+"use client";
+
 import Counter from "@/components/counter";
 import React from "react";
 
 interface ArchiveProps {
   place: string;
+  onReset?: boolean;
+  onSave?: boolean;
 }
 
-function Archive(props: ArchiveProps) {
+function Archive({ place, onReset, onSave }: ArchiveProps) {
   return (
-    <div>
-      <h2 className="text-xl font-bold my-7 text-center">{props.place}</h2>
-      <Counter />
+    <div className="border rounded-lg p-6">
+      <h2 className="text-xl font-bold my-7 text-center">{place}</h2>
+      <Counter place={place} onReset={onReset} onSave={onSave} />
     </div>
   );
 }

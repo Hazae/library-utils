@@ -39,6 +39,7 @@ body {
 }
 
 button {
+  background-color: #f2eadf;
   color: #403e3b;
 }
 
@@ -46,4 +47,23 @@ button:hover,
 button:active {
   background-color: #8c8881;
   color: #f2f2f2;
+}
+
+.btn-reset {
+  background-color: #8c8881;
+  color: #f2f2f2;
+}
+
+.btn-reset:hover {
+  opacity: 0.5;
+}
+
+.btn-save {
+  background-color: #d9756c;
+  color: #f2f2f2;
+}
+
+.btn-save:hover {
+  background-color: #d9756c;
+  opacity: 0.5;
 }

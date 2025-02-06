@@ -1,17 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useCounter } from "@/hooks/useCounter";
 
-const CounterButtons = () => {
-  const [count, setCount] = useState(0);
+interface CounterButtonsProps {
+  place: string;
+  onReset?: boolean;
+  onSave?: boolean;
+}
 
-  const decreaseCount = () => {
-    setCount((prev) => Math.max(0, prev - 1));
-  };
-
-  const increaseCount = () => {
-    setCount((prev) => prev + 1);
-  };
+const CounterButtons = ({ place, onReset, onSave }: CounterButtonsProps) => {
+  const { count, decreaseCount, increaseCount } = useCounter({
+    place,
+    onReset,
+    onSave,
+  });
 
   return (
     <>
@@ -27,17 +29,23 @@ const CounterButtons = () => {
         {count}
       </span>
 
-      <button onClick={increaseCount} className="px-4 py-2 text-2xl rounded">
+      <button onClick={increaseCount} className="px-3 py-1 text-2xl rounded">
         +
       </button>
     </>
   );
 };
 
-const Counter = () => {
+interface CounterProps {
+  place: string;
+  onReset?: boolean;
+  onSave?: boolean;
+}
+
+const Counter = ({ place, onReset, onSave }: CounterProps) => {
   return (
     <div className="flex items-center gap-5 justify-center my-3">
-      <CounterButtons />
+      <CounterButtons place={place} onReset={onReset} onSave={onSave} />
     </div>
   );
 };
